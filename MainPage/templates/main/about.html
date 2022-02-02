@@ -1,0 +1,21 @@
+
+    <!-- =============== container =============== -->
+    {% for x in deneme  %}
+    <div class="container">
+        <span class="angle2"></span>
+        <span class="angle"></span>
+        <div class="row">
+            <div class="col-xs-12 col-sm-5 col-md-3 wow fadeInLeft animated" data-wow-delay=".5s">
+                <!-- <h1><span>HEY THERE!</span> WELCOME TO OUR SITE</h2>       -->
+                    <h1>{{x.title}}</h1>
+              </div>
+              <div class="col-xs-12 col-sm-7 col-md-9 wow fadeInRight animated" data-wow-delay=".5s">
+              <h2>{{x.subtitle}}</h2>
+              <p>{{x.description}}</p>
+              </div>     
+        </div>
+    </div>   
+    {% endfor %}
+    <!-- =============== container end =============== -->		
+
+

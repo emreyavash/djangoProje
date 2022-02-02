@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- =============== Bootstrap Core CSS =============== -->
+    {% include 'partials/style.html' %}
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- =============== Preloader =============== -->
+    <div id="preloader">
+        <div id="loading">
+        </div>
+    </div>
+    <!-- =============== nav =============== -->
+    {% include 'partials/_navbar.html' %}
+    <!-- =============== header =============== -->
+	{% block content %}{% endblock  %}
+
+    <!-- =============== Screenshots =============== -->
+    
+    <!-- =============== Price =============== -->
+    
+    <!-- =============== Contact =============== -->
+    
+    <!-- Footer -->
+    {% include 'partials/footer.html' %}
+    <!-- =============== jQuery =============== -->
+    <script src="{% static 'main/js/jquery.js' %}"></script>
+    <!-- =============== Bootstrap Core JavaScript =============== -->
+    <script src="{% static 'main/js/bootstrap.min.js' %}"></script>
+    <!-- =============== Plugin JavaScript =============== -->
+    <script src="{% static 'main/js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'main/js/jquery.fittext.js' %}"></script>
+    <script src="{% static 'main/js/wow.min.js' %}"></script>
+    <!-- =============== Custom Theme JavaScript =============== -->
+    <script src="{% static 'main/js/creative.js' %}"></script>
+    <!-- =============== owl carousel =============== -->
+    <script src="{% static 'main/owl-carousel/owl.carousel.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $("#owl-demo").owlCarousel({
+                autoPlay: 3000,
+                items: 3,
+                itemsDesktop: [1199, 3],
+                itemsDesktopSmall: [979, 3]
+            });
+
+        });
+    </script>
+</body>
+</html>

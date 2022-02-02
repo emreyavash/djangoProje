@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+    {% include 'partials/style.html' %}
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'account/fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'account/css/style1.css' %}">
+</head>
+<body>
+
+    <div class="main">
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-img">
+                    <img src="{% static 'account/images/signup-img.jpg' %}" alt="">
+                </div>
+                <div class="signup-form">
+                    <form method="POST" class="register-form" id="register-form">
+                        {% csrf_token %}
+                        <h2>student registration form</h2>
+                        {% if error %}
+                            <div class="alert alert-danger">{{error}}</div>
+                        {% endif %}
+                        
+                            
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first_name">First Name :</label>
+                                <input type="text" name="first_name" id="name" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name">Last Name :</label>
+                                <input type="text" name="last_name" id="father_name" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username :</label>
+                            <input type="text" name="username" id="username" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email :</label>
+                            <input type="email" name="email" id="email" required/>
+                        </div>
+                        <div class="form-radio">
+                            <label for="gender" class="radio-label">Gender :</label>
+                            <div class="form-radio-item">
+                                <input type="radio" name="gender" value="1" id="male" checked>
+                                <label for="male">Male</label>
+                                <span class="check"></span>
+                            </div>
+                            <div class="form-radio-item">
+                                <input type="radio" name="gender" value="0" id="female">
+                                <label for="female">Female</label>
+                                <span class="check"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City :</label>
+                                <div class="form-select">
+                                    <select name="city" id="city">
+                                        
+                                        {% for c in city %}
+                                            <option value="{{c.id}}">{{c.cityName}}</option>
+                                        {% endfor %}
+                                        
+                                        
+                                    </select>
+                                    <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="birthday">Date of Birth :</label>
+                            <input type="date" name="birthday" id="birth_date">
+                        </div>
+                        <div class="form-group">
+                            <label for="tc">Tc :</label>
+                            <input type="number" name="tc" id="tc">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number :</label>
+                            <input type="number" name="phone" id="phone" />
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="password">Password :</label>
+                                <input type="password" name="password" id="password" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="repassword">Password Again :</label>
+                                <input type="password" name="repassword" id="password" required/>
+                            </div>
+                        </div>
+                        <div class="form-submit">
+                            <input type="submit" value="Reset All" class="submit" name="reset" id="reset" />
+                            <input type="submit" value="Submit Form" class="submit" name="submit" id="submit" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="{% static 'account/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'account/js/main1.js' %}"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

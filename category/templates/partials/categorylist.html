@@ -1,0 +1,13 @@
+{% load static %}
+
+<div class="container">
+    <div class="row list-group">
+        {% for x in category %}
+            <a class="col-lg-4 col-md-4 list-group-item" href='#' style="margin-right: 5px; margin-top: 5px;width: 200px;">
+                {{x.categoryName}}
+            </a>
+        
+        {% endfor %}
+        
+    </div>
+</div>

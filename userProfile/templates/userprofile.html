@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock%}</title>
+    {% include 'partials/style.html' %}
+</head>
+<body>
+    <div class="container " style="margin-top: 100px;">
+        <div class="row">
+          <div class="col-lg-4" >
+            <a style="font-size: 30px;" href="{% url 'home' %}">
+            <i class="fas fa-long-arrow-alt-left"></i>
+            </a>
+            {% if not user.userImage   %}
+                <img src="{% static 'account/images/user.jpg' %}" class="img-thumbnail" alt="profile_img" width="350px">
+            {% else %}
+                <img src="{{user.userImage.url}}" class="img-thumbnail" alt="profile_img" width="350">
+            {% endif %}
+            
+          </div>
+          <div class="col-lg-8"  >
+                <span style="font-size: 25px; color: Tomato;">
+                    <a class="fas fa-user-edit" href="{% url 'profileEdit' user.username %}">Edit</a>
+                </span>
+                <div class="mb-5" style="margin-top:10px">
+                    <label for="name" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="name" value="{{user.username}}" readonly>
+                </div>
+                <div class="mb-5" style="margin-top:10px">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" value="{{user.first_name|title}}" readonly>
+                </div>
+                <div class="mt-5" style="margin-top:10px">
+                    <label for="surname" class="form-label">Surname</label>
+                    <input type="text" class="form-control" id="surname" value="{{user.last_name|title}}" readonly>
+                </div>
+                <div class="mt-5" style="margin-top:10px">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="email" value="{{user.email}}" readonly>
+                </div>
+                <div class="mt-5" style="margin-top:10px">
+                    <label for="email" class="form-label">City</label>
+                    <input type="text" class="form-control" id="email" value="{{user.city.cityName}}" readonly>
+                </div>
+                <div class="mt-5" style="margin-top:10px">
+                    <label for="tc" class="form-label">Tc Kimlik</label>
+                    <input type="number" class="form-control" id="tc" value="{{user.tc}}" readonly>
+                </div>
+                <div class="mt-5" style="margin-top:10px">
+                    <label for="gender" class="form-label">Gender</label>
+                    <input type="text" class="form-control" id="gender" value="{{gender}}" readonly>
+                </div>
+                <div class="mt-5" style="margin-top:10px">
+                    <label for="birthday" class="form-label">Date of Birth</label>
+                    <input type="datetime " class="form-control" id="birthday" value="{{user.birthday}}"  readonly>
+                </div>
+                <div class="mt-5" style="margin-top:10px">
+                    <label for="phonenumber" class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" id="phonenumber"  value="{{user.phone}}" readonly>
+                </div>
+                {% if not user.certificateverify %}
+                <h3>Onay Formu</h3>
+                <form method="post" enctype="multipart/form-data" style="margin-bottom: 50px;">
+                    {% csrf_token %}
+                    <div class="mt-5" style="margin-top:10px">
+                        <label for="studyCertificate" class="form-label">Öğrenci Belgesi</label>
+                        <input type="file" name="studyCertificate" >
+                    </div>
+                    
+                    <div class="mt-4" style="margin-top:10px">
+                        <button class="btn btn-danger">Send</button>
+                    </div>
+                </form>
+                
+                {% endif %}
+                
+            
+            </div>
+          
+        </div>
+      </div>
+</body>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+</html>

@@ -1,0 +1,79 @@
+{% load static %}
+
+{% block screenshots %}
+	<!-- =============== container =============== -->
+    <div class="container">
+    <span class="angle2"></span>
+    <span class="angle"></span>
+     <div class="row">
+
+       <div class="col-xs-12 col-sm-12 col-md-12 wow bounceIn animated headding" data-wow-delay=".1s">
+           <h2>Screen <span>Shots</span></h2>
+           <p>Display your mobile apps awesome features with icon lists and an image carousel of each page. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.</p>
+       </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-12">
+         <div class="row">     
+          <div class="col-xs-12 col-sm-12 col-md-12 wow zoomIn animated textright" data-wow-delay=".1s">           
+               <div class="span12">
+
+                      <div id="owl-demo" class="owl-carousel">
+                        <div class="item">
+                            <div class="imghover" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><img src="{% static 'main/img/owl1.jpg' %}" alt="Owl Image">         
+                            <div class="hover-bg"><i class="fa fa-camera camera"></i></div>                 
+                            </div> 
+                        </div>
+                        <div class="item">
+                            <div class="imghover" data-toggle="modal" data-target="#exampleModa2" data-whatever="@mdo">
+                            <img src="{% static 'main/img/owl2.jpg' %}" alt="Owl Image">
+                             <div class="hover-bg"><i class="fa fa-camera camera"></i></div>                 
+                            </div>
+                        </div>
+                       <div class="item">
+                            <div class="imghover" data-toggle="modal" data-target="#exampleModa3" data-whatever="@mdo">
+                            <img src="{% static 'main/img/owl3.jpg' %}" alt="Owl Image">
+                             <div class="hover-bg"><i class="fa fa-camera camera"></i></div>                 
+                            </div>
+                        </div> 
+                        <div class="item">
+                            <div class="imghover" data-toggle="modal" data-target="#exampleModa4" data-whatever="@mdo">
+                            <img src="{% static 'main/img/owl4.jpg' %}" alt="Owl Image">
+                             <div class="hover-bg"><i class="fa fa-camera camera"></i></div>                 
+                            </div>
+                        </div>
+                      </div>              
+                    </div>     
+                      
+        </div>     
+          <!-- =============== popup large image =============== -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+          <div class="modal-dialog" role="document">
+            <img src="{% static 'main/img/owl1.jpg' %}" alt="Owl Image">
+          </div>
+         </div>
+
+         <div class="modal fade" id="exampleModa2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe2">
+          <div class="modal-dialog" role="document">
+            <img src="{% static 'main/img/owl2.jpg' %}" alt="Owl Image">
+          </div>
+         </div>
+         
+         <div class="modal fade" id="exampleModa3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe3">
+          <div class="modal-dialog" role="document">
+            <img src="{% static 'main/img/owl3.jpg' %}" alt="Owl Image">
+          </div>
+         </div>
+         
+         <div class="modal fade" id="exampleModa4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4">
+          <div class="modal-dialog" role="document">
+            <img src="{% static 'main/img/owl4.jpg' %}" alt="Owl Image">
+          </div>
+         </div>
+		 <!-- =============== popup large image end =============== -->
+      </div>
+      
+    </div>
+    </div>      
+	</div><!-- =============== container end =============== -->
+
+{% endblock  %}

@@ -1,0 +1,66 @@
+{% load static %}
+
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top" style="background-color: grey;">
+    <div class="container">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'main/img/logo.png' %}" alt="Logo">
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#how-it-works">How it works</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#Screenshots">Screenshots</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#Price">Price</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'category' %}">Category</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a class="page-scroll" href="{% url 'userprofile' user.username %}" >
+                            {{user.first_name|title}} {{user.last_name|title}}
+                        </a>  
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a class="page-scroll" href="{% url 'login' %}">Login </a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'register' %}">Register</a>
+                    </li>
+                    {% endif %}
+                    
+                </ul>
+            </div>
+            <!-- =============== navbar-collapse =============== -->
+
+        </div>
+    </div>
+    <!-- =============== container-fluid =============== -->
+</nav>

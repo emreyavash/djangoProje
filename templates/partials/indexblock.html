@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'partials/header.html' %}
+    
+    
+<!-- =============== how it works =============== -->
+<section id="about" class="">
+
+    {% include 'main/about.html' %}
+</section>
+<section id="how-it-works" class="">
+
+    {% include 'main/howItwork.html' %}
+</section>
+<section id="Screenshots" class="">
+
+    {% include 'main/screenshot.html' %}
+</section>
+<section id="Price" class="">
+
+    {% include 'main/price.html' %}
+</section>
+<section id="contact" class="">
+
+    {% include 'main/contact.html' %}
+    </section>
+    
+{% endblock %}

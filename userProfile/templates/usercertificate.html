@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate</title>
+    {% include 'partials/style.html' %}
+</head>
+<body>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Email</th>
+            <th scope="col">Certificate</th>
+            <th scope="col">Accept</th>
+            <th scope="col">Reject</th>
+          </tr>
+        </thead>
+        <tbody>
+            <form method="POST">
+                {% csrf_token %}
+                {% for u in user %}
+                <tr>
+                    <th scope="row">{{u.id}}</th>
+                    <td>{{u.first_name}}</td>
+                    <td>{{u.last_name}}</td>
+                    <td>{{u.email}}</td>
+                    <td>
+                        {% if u.studentcertificate %}
+                            <a href="{% url 'certificateImage' u.username %}">
+                                Fotoğrafı gör
+                            </a>
+                        {% else %}
+                            <p>Fotoğraf yok</p>
+                        {% endif %}
+                        
+                    </td>
+                    <td><input type="text" value="{{ u.id }}" name="id"></td>
+                    <td><button class="btn btn-success" name="button" value="accept" >Accept</button></td>
+                    <td><button class="btn btn-danger" name="button" value="reject" >Reject</button></td>
+                </tr>
+                    
+                {% endfor %}
+            </form>
+            
+            
+          
+        </tbody>
+      </table>
+</body>
+</html>
