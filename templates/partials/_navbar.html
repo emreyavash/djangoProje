@@ -45,6 +45,13 @@
                         </a>  
                     </li>
                     <li>
+                        <a class="page-scroll" href="{% url 'shoppingCart' user.username %}" >
+                            <i class="fas fa-shopping-basket" style="font-size: 20px;"></i>
+                        </a>  
+                    </li>
+                    
+
+                    <li>
                         <a class="page-scroll" href="{% url 'logout' %}">Logout</a>
                     </li>
                     {% else %}

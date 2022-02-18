@@ -1,0 +1,33 @@
+{% for prd in product  %}
+<div class="product">
+    <div class="row">
+        <div class="col-md-3" style="margin-left:5px">
+            <img class="img-fluid mx-auto d-block image" src="{{prd.product.courseImage.url }}">
+        </div>
+        <div class="col-md-8">
+            <div class="info">
+                <div class="row">
+                    <div class="col-md-5 product-name">
+                        <div class="product-name">
+                            <a href="#">{{ prd.product.courseName|safe }}</a>
+                            <div class="product-info">
+                                <p>username = {{prd.user.username}}</p>
+                                <div>Teacher: <span class="value">{{ prd.teacher.teacherName }}</span></div>
+                                deneme:{{deneme}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 quantity">
+                        <label for="quantity">Quantity:</label>
+                        <input id="quantity" type="number" value ="{{prd.quantity}}" class="form-control quantity-input">
+                    </div>
+                    <div class="col-md-3 price">
+                        <span>${{prd.total_price}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}

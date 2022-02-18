@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-
+from os import getenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,11 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-#u)*l^uehqg9o3dyov@b+4(%wp*9ai!8+o9+ns*(7c5cgh3h&_'
+# SECRET_KEY = getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["django-env.eba-wm7jpetf.us-west-2.elasticbeanstalk.com"]
 
 
 # Application definition
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'account',
     'category',
     'userProfile',
+    'shoppingCard',
 ]
 
 
@@ -116,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'tr-tr'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Istanbul'
 
 USE_I18N = True
 
@@ -136,6 +138,10 @@ STATIC_URL = 'static/'
 STATICFILES_DIR=[
     BASE_DIR/'static'
 ]
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+
 MEDIA_ROOT =BASE_DIR/"uploads"
 MEDIA_URL ="/images/"
 # Default primary key field type

@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shopping Cart</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% include 'partials/style.html' %}
+</head>
+<body>
+	<main class="page">
+	 	<section class="shopping-cart dark">
+	 		<div class="container">
+		        <div class="block-heading">
+		          <h2>Welcome {{user.first_name|title}} {{user.last_name|title}}</h2>
+		          <p>Satın Al</p>
+		        </div>
+                <a style="font-size: 30px;" href="{% url 'category' %}">
+                    <i class="fas fa-long-arrow-alt-left"></i>
+                </a>
+		        <div class="content">
+	 				<div class="row">
+                        {% comment %} {% if error %}
+						<div class="danger" style="width:250px;height:250px">
+							<div style="text-align:center">{{error}}</div>
+						</div>
+						{% else %} {% endcomment %}
+						<div class="col-md-12 col-lg-8">
+							<div class="items">
+								
+								{% include 'partials/product.html' %}
+								deneme:{{deneme}}
+							</div>
+						</div>
+						<div class="col-md-12 col-lg-4">
+								{% include 'partials/summary.html' %}
+						</div>
+						{% comment %} {% endif %} {% endcomment %}
+                        
+		 			</div> 
+		 		</div>
+	 		</div>
+		</section>
+	</main>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

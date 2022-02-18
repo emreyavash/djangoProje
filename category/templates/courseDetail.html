@@ -1,0 +1,47 @@
+{% extends 'index.html' %}
+
+{%load static%}
+
+{% block title %}Course Details{% endblock %}
+
+{% block content %}
+
+<div class="container mt-3" style="margin:110px">
+    <div class="row">
+        
+        <div class="col-12">
+            
+            <div class="card mb-3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-body">
+                            <form method="post" action="{% url 'shopping' username=user.username %}">
+                                {% csrf_token %}
+                                <h1 class="card-title h3 mb-3" >                         
+                                    {{course.courseName|title}}
+                                </h1>
+                                <input type="hidden" name="courseName" value="{{course.courseName}}">
+                                <img src="{{course.courseImage.url}}" alt="" class="img-fluid" style="float:left;margin-right:20px">
+                                <span class="card-text" >{{course.teacher.teacherName|safe}}</span> | <span> {{course.category.all|join:","|title}}</span> 
+                                <input type="hidden" name="teacherName" value="{{course.teacher.teacherName}}">
+                                {% comment %} {% for category in course.category.all %}
+                                        {{category.categoryName|title}}
+                                {% endfor %} {% endcomment %}
+                                <p class="card-text">{{course.description|safe}}</p>
+                                <p class="card-text">{{course.numberOfStudent|safe}}</p>
+                                <input type="hidden" name="quantity" value="1">
+                                <p class="card-text">{{course.coursePrice|safe}} ₺</p>
+                                <input type="hidden" value="{{course.coursePrice}}" name="coursePrice">
+                                <button class="btn" >Sepete Ekle</button>
+                            </form>
+                           
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+</div>
+{% endblock %}

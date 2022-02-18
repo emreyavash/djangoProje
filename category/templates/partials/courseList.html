@@ -1,0 +1,17 @@
+{% load static %}
+
+
+    
+    <div class="card col-lg-4" style="width: 18rem; margin-top: 5px;">
+        <img src="{{cou.courseImage.url}}" class="card-img-top" alt="..." width="200">
+        <div class="card-body"style="margin-top: 5px;">
+           
+            <a href="{% url 'courseDetail' cou.slug %}" class="card-title" style="font-size:20px" >{{cou.courseName}}</a>
+            <p class="card-text">{{cou.description}}</p>
+            <p class="card-text"> {{cou.teacher.teacherName}}</p>
+            <a href="{% url 'courseDetail' cou.slug %}" class="btn btn-primary">Go Course</a>
+            
+        </div>
+    </div>
+  
+

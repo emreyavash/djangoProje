@@ -1,6 +1,4 @@
-from distutils.command import upload
-from email.policy import default
-from typing import AbstractSet
+
 from django.db import models
 from django.contrib.auth.models import AbstractUser,PermissionsMixin,BaseUserManager
 # Create your models here.
@@ -45,7 +43,7 @@ class User(AbstractUser,PermissionsMixin):
     phone= models.CharField(max_length=11,null=True)
     phoneverify= models.BooleanField(default=False)
     objects = CustomAccountManager()
-    userImage=models.ImageField(upload_to="users/",null=False)
+    userImage=models.ImageField(upload_to="users/",null=True)
 
     USERNAME_FIELD ="username"
     REQUIRED_FIELDS = ["email","first_name","last_name","gender","birthday",'tc','phone','city']

@@ -2,7 +2,21 @@
 {% load static %}
 
 {% block content %}
-<div class="container" style="margin-top: 100px;">
-    {% include 'partials/categorylist.html' %}
+<div class="container" style="margin:150px">
+    <div class="row">
+        <div class="col-lg-4">
+               {% include "partials/categorylist.html" %}
+
+        </div>
+        <div class="col-lg-8">
+            <div class="row">
+            {% for cou in course %}
+                {% include 'partials/courseList.html' %}
+            {% endfor %}
+            </div>
+        </div>
+        
+        
+    </div>
 </div>
 {% endblock  %}

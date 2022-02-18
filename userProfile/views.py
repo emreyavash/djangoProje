@@ -61,6 +61,7 @@ def certificateImage_view(request,username):
                 user.certificateverify = 1
                 user.save()
             elif request.POST['button'] == "reject":
+                user.studentcertificate = ""
                 user.certificateverify = 0
                 user.save()
             return redirect("certificate")

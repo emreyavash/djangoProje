@@ -24,7 +24,8 @@ urlpatterns = [
     path('account/',include('account.urls')),
     path('category/',include('category.urls')),
     path('profile/',include('userProfile.urls')),
+    path('shopping-cart/',include('shoppingCard.urls')),
    
-]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)+static(settings.STATIC_URL,documnet_root=settings.STATIC_ROOT)
+] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,documnet_root=settings.STATIC_ROOT)
 
 
